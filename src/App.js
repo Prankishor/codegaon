@@ -1,23 +1,33 @@
-import logo from './logo.svg';
 import './App.css';
+
+//Codemirror dependencies
+import CodeMirror from '@uiw/react-codemirror';
+import { javascript } from '@codemirror/lang-javascript';
+import { okaidia } from '@uiw/codemirror-theme-okaidia';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div className='fullcontainer'>
+      <header>
+        <span>Nav Bar</span>
       </header>
+      <div className='container'>
+        <div className='files'>
+          <span>Something</span>
+        </div>
+        <div className='codepen'>
+          <CodeMirror
+            value="console.log('hello world!');"
+            height='88vh'
+            extensions={[javascript({ jsx: true })]}
+            theme={okaidia}
+          />
+        </div>
+        <div className='output-window'>
+          <span>OUTPUT WINDOW</span>
+        </div>
+      </div>
     </div>
   );
 }
