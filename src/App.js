@@ -1,32 +1,69 @@
 import './App.css';
 
+//Hooks
+import { useState } from 'react';
+
 //Codemirror dependencies
 import CodeMirror from '@uiw/react-codemirror';
-import { javascript } from '@codemirror/lang-javascript';
+import { cpp } from '@codemirror/lang-cpp';
+import { java } from '@codemirror/lang-java';
+import { python } from '@codemirror/lang-python';
 import { okaidia } from '@uiw/codemirror-theme-okaidia';
 
 
 function App() {
+
+  const codeForCpp = '#include <iostream> \n int main() { \n std::cout << "Hello World!"; \n return 0; \n }'
+  const codeForJava = 'class HelloWorld {\n public static void main(String[] args) { \nSystem.out.println("Hello, World!"); \n}\n}'
+  const codeForPython = 'print("Hello, world!")'
+
+  const [sampleCode, setSampleCode] = useState(codeForCpp)
+  const [index, setIndex] = useState(0)
+  const extentions = [cpp(), java(), python()]
+
+  const handleChange = (e) => {
+    let lang = e.target.value
+    if (lang === 'C++') {
+      setIndex(0)
+      setSampleCode(codeForCpp)
+    }
+    else if (lang === 'Java') {
+      setIndex(1)
+      setSampleCode(codeForJava)
+    }
+    else {
+      setIndex(2)
+      setSampleCode(codeForPython)
+    }
+  }
+
   return (
-    <div className='fullcontainer'>
-      <header>
-        <span>Nav Bar</span>
-      </header>
-      <div className='container'>
-        <div className='files'>
-          <span>Something</span>
+    <div className='container'>
+      <div className='editor_top'>
+
+
+        <div className='select_container'>
+          <select defaultValue="C++" className='select_languages' id='languages' onChange={handleChange}>
+            <option value="C++">C++</option>
+            <option value="Java">Java</option>
+            <option value="Python">Python</option>
+          </select>
         </div>
-        <div className='codepen'>
-          <CodeMirror
-            value="console.log('hello world!');"
-            height='88vh'
-            extensions={[javascript({ jsx: true })]}
-            theme={okaidia}
-          />
+
+        <div className='submit_button'>
+          <button>Submit</button>
         </div>
-        <div className='output-window'>
-          <span>OUTPUT WINDOW</span>
-        </div>
+      </div>
+
+      <div className='codepen'>
+        <CodeMirror
+          value={sampleCode}
+          height='88vh'
+          extensions={
+            [extentions[index]]
+          }
+          theme={okaidia}
+        />
       </div>
     </div>
   );
