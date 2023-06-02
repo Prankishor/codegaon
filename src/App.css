@@ -1,0 +1,62 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  margin: 2rem;
+}
+
+.editor_top {
+  margin-bottom: 0.2rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.select_languages {
+  padding: 5px 20px;
+  background-color: #e6cd43;
+
+}
+
+select option:hover {
+  box-shadow: 0 0 10px 100px #000 inset;
+}
+
+.submit_button {
+  padding: 5px 20px;
+  background-color: #2ac714;
+  color: white;
+  border-radius: 5%;
+  border: none;
+}
+
+.submit_button:hover {
+  cursor: pointer;
+  background-color: #176e0b;
+}
+
+.right_container {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.left_container {
+  padding: 1rem;
+  width: 70%;
+}
+
+textarea {
+  border: none;
+  resize: none;
+  background-color: lightgray;
+}
+
+label {
+  color: white;
+  padding: 0.4rem;
+  font-size: larger;
+
+}
+
+.input_window {
+  margin-bottom: 0.8rem;
+}

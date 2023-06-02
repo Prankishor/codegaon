@@ -39,31 +39,45 @@ function App() {
 
   return (
     <div className='container'>
-      <div className='editor_top'>
+      <div className='left_container'>
+        <div className='editor_top'>
+          <div className='select_container'>
+            <select defaultValue="C++" className='select_languages' id='languages' onChange={handleChange}>
+              <option value="C++">C++</option>
+              <option value="Java">Java</option>
+              <option value="Python">Python</option>
+            </select>
+          </div>
 
-
-        <div className='select_container'>
-          <select defaultValue="C++" className='select_languages' id='languages' onChange={handleChange}>
-            <option value="C++">C++</option>
-            <option value="Java">Java</option>
-            <option value="Python">Python</option>
-          </select>
+          <div className='submit_container'>
+            <button className='submit_button'>Submit</button>
+          </div>
         </div>
 
-        <div className='submit_button'>
-          <button>Submit</button>
+        <div className='codepen'>
+          <CodeMirror
+            value={sampleCode}
+            height='88vh'
+            width='100%'
+            extensions={
+              [extentions[index]]
+            }
+            theme={okaidia}
+          />
         </div>
       </div>
+      <div className='right_container'>
+        <label>Input</label>
+        <div className='input_window'>
+          <textarea rows={20} cols={50} className='input_area'>
 
-      <div className='codepen'>
-        <CodeMirror
-          value={sampleCode}
-          height='88vh'
-          extensions={
-            [extentions[index]]
-          }
-          theme={okaidia}
-        />
+          </textarea>
+        </div>
+        <label>Output</label>
+        <div className='output_window'>
+          <textarea cols={50} rows={20} className='output_area' readOnly>
+          </textarea>
+        </div>
       </div>
     </div>
   );
