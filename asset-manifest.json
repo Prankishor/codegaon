@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/codegaon/static/css/main.4d625e4f.css",
+    "main.js": "/codegaon/static/js/main.193efaad.js",
+    "index.html": "/codegaon/index.html",
+    "main.4d625e4f.css.map": "/codegaon/static/css/main.4d625e4f.css.map",
+    "main.193efaad.js.map": "/codegaon/static/js/main.193efaad.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4d625e4f.css",
+    "static/js/main.193efaad.js"
+  ]
+}
